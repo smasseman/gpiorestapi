@@ -2,21 +2,20 @@
 REST Api for Raspberry gpio
 
 ## How to start application
-java -Dgpio.config=OUTPUT.1.Tuta.LOW,INPUT.2.Door.PULL_DOWN -jar build/libs/gpio-1.0.0.jar
+java -Dspring.resources.static_locations=file:/path -Dgpio.config=OUTPUT.1.Tuta.LOW,INPUT.2.Door.PULL_DOWN -jar build/libs/gpio-1.0.0.jar
 
 ## Get state
-GET /pin
+GET /gpio/pin
 Response: {"state":"LOW"}
   
 ## Set state
-POST /{pin}/{state}
+POST /gpio/{pin}/{state}
   
 ## Post a sequence of commands
-POST /sequence/{pin}{H|L}{millis}
+POST /gpio/sequence/{pin}{H|L}{millis}
 sequence example: 1H1000,1L500
 
 ## Subscribe to Server Sent Events
-GET /{pin}/events
+GET /gpio/{pin}/events
   
-{pin} is an integer
-{state} is HIGH or LOW
+Example of event data in response: {"pin":1,"state":"LOW"}
