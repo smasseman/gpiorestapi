@@ -3,15 +3,13 @@
 
 name: Gradle Package
 
-on:
-  release:
-    types: [created]
+on: [push]
+#  release:
+#    types: [created]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
