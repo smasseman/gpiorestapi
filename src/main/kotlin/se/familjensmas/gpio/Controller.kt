@@ -12,6 +12,7 @@ import java.time.Duration
 import java.util.concurrent.Executors
 import java.util.regex.Pattern
 
+@RequestMapping("/gpio")
 @RestController
 class Controller(private val config: GpioConfiguration) {
 
